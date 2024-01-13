@@ -8,13 +8,9 @@ import ProfileDetails from "./component/ProfileDetails";
 function App() {
   const { loginWithRedirect, user: UserFromAuth0, logout } = useAuth0();
 
-  const {
-    state: UserFromMongo,
-    actions: { createUserAndRecieveInfo },
-  } = useContext(UserContext);
-
+  const { user, createUserAndRecieveInfo } = useContext(UserContext);
+  
   console.log("user from Auth0", UserFromAuth0);
-  console.log("user from mongodb", UserFromMongo);
 
   useEffect(() => {
     if (UserFromAuth0) {
@@ -22,7 +18,7 @@ function App() {
     }
   }, [UserFromAuth0]);
 
-  const isAuthenticated = UserFromMongo.email ? true : false;
+  const isAuthenticated = user.email ? true : false;
 
   return (
     <div className="App">

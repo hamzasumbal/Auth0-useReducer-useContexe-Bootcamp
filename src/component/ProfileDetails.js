@@ -2,21 +2,18 @@ import React, { useContext, useState } from "react";
 import { UserContext } from "../context/UserContext";
 
 const ProfileDetails = () => {
-  const {
-    state: User,
-    actions: { updateUniversity },
-  } = useContext(UserContext);
+  const {user, updateUniversity} = useContext(UserContext);
 
   const [input, setInput] = useState({
-    university: User.university,
-    email: User.email,
+    university: user.university,
+    email: user.email,
   });
 
   return (
     <>
-      <h1>{User.name}</h1>
+      <h1>{user.name}</h1>
       <br />
-      <img src={User.picture} />
+      <img src={user.picture} />
       <br />
       <input
         value={input.university}
