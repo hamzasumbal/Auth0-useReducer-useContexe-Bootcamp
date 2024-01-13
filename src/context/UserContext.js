@@ -24,6 +24,7 @@ const UserProvider = ({ children }) => {
       name: newUser.name,
       picture: newUser.picture,
       university: "McGill",
+      id : newUser.sub
     });
   };
 
